@@ -106,8 +106,10 @@
 
 .textAndButton {
   position: absolute;
-  top: 2cm;
-  left: 2cm;
+  top: 1cm;
+  left: 1cm;
+
+  /* Fortsätt här, det fungerar inte att texten inte följer bilden. Blir fult om det är en mindre skärm*/
 }
 
 .textAndButton h3 {
