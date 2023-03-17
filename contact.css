@@ -1,0 +1,179 @@
+.logo img {
+    width: 100px;
+}
+  
+.logo {
+    grid-area: icon;
+}
+  
+.right-menu {
+  display: grid;
+  grid-area: nav;
+  place-items: center;
+  justify-self: end;
+}
+
+.right-menu li a {
+  color: #2fd895;
+}
+
+.contactHeader {
+  grid-area: contactUs;
+  font-size: xxx-large;
+  background-color: #fbf7f7;
+  padding: 1cm;
+  /* text-align: center; */
+  /* padding-left: 1fr; */
+}
+
+.dontHesitateContactText {
+  grid-area: dontHestitate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1cm;
+  margin-top: 0cm;
+}
+
+.adressAndEmail {
+  grid-area: adress;
+}
+
+.availableSchedule {
+  display: grid;
+  grid-area: openHours;
+  grid-template-columns: 1fr 2fr;
+}
+
+.inputFields {
+  grid-area: form;
+  padding-right: 1cm;
+}
+.inputFields .nameAndNumber {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 10px;
+}
+
+.inputFields label {
+  display: block;
+}
+.inputFields input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #7bdcb5;
+  /* border: 2px solid #777;
+  border-radius: 13px;  */
+}
+
+.inputFields input:focus {
+  outline:none;
+  border-color: #2fd895;
+}
+
+.inputFields textarea {
+  width: 100%;
+  border: 2px solid #7bdcb5;
+  border-radius: 5px;
+}
+
+.inputFields textarea:focus {
+  outline: none;
+  border-color: #2fd895;
+}
+
+.inputFields #submitButton {
+  width: auto;
+}
+
+.inputFields button {
+  border: 2px solid #7bdcb5;
+  background: #7bdcb5;
+  border-radius: 5px;
+}
+
+.inputFields button:hover {
+  border-color: #2fd895;
+  background: #2fd895;
+  cursor: pointer;
+}
+
+.messageDiv {
+  padding-top: 10px;
+}
+
+.messageDiv textarea {
+  height: 200px;
+  resize: none;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 5px;
+    color: #7bdcb5;
+}
+  
+li {
+    padding: 5px;
+}
+  
+body {
+  
+    display: grid;
+    grid-template-areas: 
+      "icon . nav nav"
+      "contactUs contactUs contactUs contactUs"
+      ". dontHestitate adress ."
+      ". form openHours .";
+  
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+
+    /* justify-self: center; */
+    /* align-self: center; */
+  
+    font-family: "Libre Baskerville", serif;
+  
+}
+  
+  
+@media screen and (max-width: 430px) {
+    body {
+      grid-template-columns: calc(100%-2em);
+      grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+      grid-template-areas:
+      "icon"
+      "nav"
+      "contactUs" 
+      "dontHestitate"
+      "adress"
+      "openHours"
+      "form";
+      padding: 1em;
+    }
+
+    .right-menu {
+      display: grid;
+      grid-area: nav;
+      text-align: left;
+      justify-self: left;
+      place-items: left;
+      padding: 0cm;
+    }
+
+    .contactHeader {
+      /* grid-area: contactUs; */
+      /* font-size: xxx-large; */
+      padding: 0cm;
+      width: 100%;
+      /* padding: 1cm;; */
+    }
+
+    .availableSchedule {
+      display: grid;
+      grid-area: openHours;
+      grid-template-columns: 1fr 2fr;
+      margin-bottom: 5px;
+    }
+
+}
