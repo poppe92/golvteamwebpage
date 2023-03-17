@@ -48,7 +48,9 @@
 .inputFields {
   grid-area: form;
   padding-right: 1cm;
+  padding-bottom: 1cm;
 }
+
 .inputFields .nameAndNumber {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,6 +109,32 @@
   resize: none;
 }
 
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  padding: 24px;
+  background-color: #fbf7f7;
+}
+
+ .footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
 ul {
     list-style-type: none;
     display: flex;
@@ -125,7 +153,8 @@ body {
       "icon . nav nav"
       "contactUs contactUs contactUs contactUs"
       ". dontHestitate adress ."
-      ". form openHours .";
+      ". form openHours ."
+      "footer footer footer footer";
   
     grid-template-columns: 1fr 2fr 1fr 1fr;
 

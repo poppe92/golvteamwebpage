@@ -65,12 +65,14 @@
   display: grid;
   grid-area: employees;
   grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 15px; 
 
 }
 
 .employees .contentDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 10px;
 }
 
 .ourEmployeesHeader {
@@ -86,21 +88,18 @@
   display: grid;
   grid-area: footer;
   grid-template-columns: 2fr 1fr;
-  /* place-items: center; */
-  /* justify-self: end; */
   padding: 24px;
   background-color: #fbf7f7;
 }
 
-/* .footerLinks {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-} (for future reference) */
+ .footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
 
 .socialMediaLinks {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .footer a {
@@ -108,9 +107,8 @@
 }
 
 .footer img {
-  width: 80%;
+  max-width: 10cm;
 }
-
 
 ul {
     list-style-type: none;
