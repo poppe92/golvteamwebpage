@@ -75,19 +75,22 @@
   background-color: #fbf7f7;
 }
 
-/* .footerLinks {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-} (for future reference) */
+ .footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
 
 .socialMediaLinks {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .footer a {
   padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
 }
 
 ul {
