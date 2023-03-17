@@ -5,7 +5,7 @@
 .logo {
     grid-area: icon;
 }
-  
+
 .right-menu {
     display: grid;
     grid-area: nav;
@@ -34,11 +34,16 @@
   grid-template-columns: 2fr 1fr;
 }
 
+.adressImage {
+  display: grid;
+}
+
 .imageAndAdressWrapper img{
-  width: 1fr;
+  /*width: 1fr;*/
 }
 
 .smallAdress {
+  display: grid;
   /* grid-area: shortAdress; */
 }
 
