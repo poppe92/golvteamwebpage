@@ -17,6 +17,108 @@
   color: #2fd895;
 }
 
+.generationsHeader {
+  display: grid;
+  grid-area: generationsHeader;
+  place-items: center;
+  text-align: center;
+}
+
+.articleWrapper {
+  display: grid;
+  grid-area: article;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.mattorDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.mattorDiv img {
+  width: 75%;
+}
+
+.laminatDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.laminatDiv img {
+  width: 75%;
+}
+
+.kakelDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.kakelDiv img {
+  width: 75%;
+}
+
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  /* place-items: center; */
+  /* justify-self: end; */
+  padding: 24px;
+  background-color: #fbf7f7;
+}
+
+ .footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
+.reviewDivider {
+  display: grid;
+  grid-area: reviewDivider;
+  align-self: center;
+  text-align: center;
+}
+
+.contactUsImage {
+  display: grid;
+  grid-area: bookOrContact;
+  position: relative;
+  text-align: center;
+  color: black;
+  padding-bottom: 1cm;
+}
+
+.textAndButton {
+  position: absolute;
+  top: 2cm;
+  left: 2cm;
+}
+
+.textAndButton h3 {
+  font-size: xx-large;
+}
+
+.contactUsImage img {
+  width: 100%;
+  border-radius: 10px;
+}
+
 ul {
     list-style-type: none;
     display: flex;
@@ -33,9 +135,10 @@ body {
     display: grid;
     grid-template-areas: 
       "icon nav"
-      "welcome welcome"
-      "aboutUsImage aboutUs"
-      "aboutUsOffers aboutUsOffers"
+      "generationsHeader generationsHeader"
+      "article article"
+      "reviewDivider reviewDivider"
+      "bookOrContact bookOrContact"
       "footer footer";
   
     grid-template-rows: 1fr ;
