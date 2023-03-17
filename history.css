@@ -25,6 +25,7 @@
   font-weight: lighter;
   color: #384143;
   padding: 1cm;
+  background-color: #fbf7f7;
 }
 
 .imageAndAdressWrapper {
@@ -58,7 +59,6 @@
 .historyArticle img {
   width: 100px;
   padding: 1cm;
-  background-color: #2fd895;
 }
 
 .employees {
@@ -71,7 +71,6 @@
 .employees .contentDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: #2fd895;
 }
 
 .ourEmployeesHeader {
