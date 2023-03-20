@@ -30,6 +30,16 @@
   padding: 50px 8%;
 }
 
+.previousWorkHeader {
+  grid-area: previousWorkHeader;
+  font-size: x-large;
+  font-weight: lighter;
+  color: #384143;
+  padding: 1cm;
+  text-align: center;
+  background-color: #fbf7f7;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -80,10 +90,12 @@ li {
 body {
   display: grid;
   grid-template-areas:
-    "icon . nav nav"
-    "contactUs contactUs contactUs contactUs";
+    "icon nav"
+    "previousWorkHeader previousWorkHeader"
+    "contactUs contactUs"
+    "footer footer";
 
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   font-family: "Libre Baskerville", serif;
 }
