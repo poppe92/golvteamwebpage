@@ -1,0 +1,183 @@
+.logo img {
+    width: 100px;
+}
+  
+.logo {
+    grid-area: icon;
+}
+  
+.right-menu {
+    display: grid;
+    grid-area: nav;
+    place-items: center;
+    justify-self: end;
+}
+
+.right-menu li a {
+  color: #2fd895;
+}
+
+.generationsHeader {
+  display: grid;
+  grid-area: generationsHeader;
+  place-items: center;
+  text-align: center;
+  background-color: #fbf7f7;
+  padding: 1cm;
+}
+
+.articleWrapper {
+  display: grid;
+  grid-area: article;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.mattorDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.5cm;
+}
+
+.mattorDiv img {
+  width: 75%;
+}
+
+.laminatDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.5cm;
+}
+
+.laminatDiv img {
+  width: 75%;
+}
+
+.kakelDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.5cm;
+}
+
+.kakelDiv img {
+  /* padding-top: 1cm; */
+  width: 75%;
+}
+
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  /* place-items: center; */
+  /* justify-self: end; */
+  padding: 24px;
+  background-color: #fbf7f7;
+}
+
+.footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
+.reviewDivider {
+  display: grid;
+  grid-area: reviewDivider;
+  align-self: center;
+  text-align: center;
+  margin-top: 10px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.contactUsImage {
+  display: grid;
+  grid-area: bookOrContact;
+  position: relative;
+  text-align: center;
+  color: black;
+  padding-bottom: 1cm;
+}
+
+.contactUsImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.contactUsImage figcaption {
+  position: absolute;
+  top: 10%;
+  bottom: 90%;
+  right: 40%;
+}
+
+.contactUsImage h3 {
+  font-size: 2vw;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 5px;
+    color: #7bdcb5;
+}
+  
+li {
+    padding: 5px;
+}
+
+body {
+
+    display: grid;
+    grid-template-areas: 
+      "icon nav"
+      "generationsHeader generationsHeader"
+      "article article"
+      "reviewDivider reviewDivider"
+      "bookOrContact bookOrContact"
+      "footer footer";
+  
+    grid-template-rows: 1fr ;
+    grid-template-columns: 1fr 1fr;
+  
+    font-family: "Libre Baskerville", serif;
+  
+}
+  
+  
+@media screen and (max-width: 430px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+    grid-template-areas:
+    "icon"
+    "nav"
+    "welcome"
+    "aboutUsImage"
+    "aboutUs"
+    "aboutUsOffers"
+    "footer"
+  }
+  header, nav {
+    text-align: center;
+    justify-self: center;
+  }
+  nav a {
+    margin: 0 10px;
+  }
+}

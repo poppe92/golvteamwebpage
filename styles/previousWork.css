@@ -1,0 +1,129 @@
+.logo img {
+  width: 100px;
+}
+
+.logo {
+  grid-area: icon;
+}
+
+.right-menu {
+  display: grid;
+  grid-area: nav;
+  place-items: center;
+  justify-self: end;
+}
+
+.right-menu li a {
+  color: #2fd895;
+}
+
+.container {
+  grid-area: contactUs;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 8%;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  padding: 24px;
+  background-color: #fbf7f7;
+}
+
+.footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+}
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  color: #7bdcb5;
+}
+
+li {
+  padding: 5px;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "icon . nav nav"
+    "contactUs contactUs contactUs contactUs";
+
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+
+  font-family: "Libre Baskerville", serif;
+}
+
+@media screen and (max-width: 430px) {
+  body {
+    grid-template-columns: calc(100%-2em);
+    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+    grid-template-areas:
+      "icon"
+      "nav"
+      "contactUs"
+      "dontHestitate"
+      "adress"
+      "openHours"
+      "form";
+    padding: 1em;
+  }
+
+  .right-menu {
+    display: grid;
+    grid-area: nav;
+    text-align: left;
+    justify-self: left;
+    place-items: left;
+    padding: 0cm;
+  }
+
+  .contactHeader {
+    /* grid-area: contactUs; */
+    /* font-size: xxx-large; */
+    padding: 0cm;
+    width: 100%;
+    /* padding: 1cm;; */
+  }
+
+  .availableSchedule {
+    display: grid;
+    grid-area: openHours;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 5px;
+  }
+}
