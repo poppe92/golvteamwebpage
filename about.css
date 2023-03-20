@@ -22,6 +22,8 @@
   grid-area: generationsHeader;
   place-items: center;
   text-align: center;
+  background-color: #fbf7f7;
+  padding: 1cm;
 }
 
 .articleWrapper {
@@ -34,6 +36,7 @@
   display: grid;
   place-items: center;
   text-align: center;
+  padding: 0.5cm;
 }
 
 .mattorDiv img {
@@ -44,6 +47,7 @@
   display: grid;
   place-items: center;
   text-align: center;
+  padding: 0.5cm;
 }
 
 .laminatDiv img {
@@ -54,9 +58,11 @@
   display: grid;
   place-items: center;
   text-align: center;
+  padding: 0.5cm;
 }
 
 .kakelDiv img {
+  /* padding-top: 1cm; */
   width: 75%;
 }
 
@@ -70,7 +76,7 @@
   background-color: #fbf7f7;
 }
 
- .footerLinks {
+.footerLinks {
   display: grid;
   align-self: center;
   justify-self: end;
@@ -93,6 +99,9 @@
   grid-area: reviewDivider;
   align-self: center;
   text-align: center;
+  margin-top: 10px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .contactUsImage {
@@ -104,21 +113,21 @@
   padding-bottom: 1cm;
 }
 
-.textAndButton {
-  position: absolute;
-  top: 1cm;
-  left: 1cm;
-
-  /* Fortsätt här, det fungerar inte att texten inte följer bilden. Blir fult om det är en mindre skärm*/
-}
-
-.textAndButton h3 {
-  font-size: xx-large;
-}
-
 .contactUsImage img {
   width: 100%;
+  height: 100%;
   border-radius: 10px;
+}
+
+.contactUsImage figcaption {
+  position: absolute;
+  top: 10%;
+  bottom: 90%;
+  right: 40%;
+}
+
+.contactUsImage h3 {
+  font-size: 2vw;
 }
 
 ul {
