@@ -1,0 +1,165 @@
+.logo img {
+    width: 100px;
+}
+  
+.logo {
+    grid-area: icon;
+}
+
+.right-menu {
+    display: grid;
+    grid-area: nav;
+    place-items: center;
+    justify-self: end;
+}
+
+.right-menu li a {
+  color: #2fd895;
+}
+
+.ourHistoryHeader {
+  display: grid;
+  grid-area: welcome;
+  place-items: center;
+  font-size: x-large;
+  font-weight: lighter;
+  color: #384143;
+  padding: 1cm;
+  background-color: #fbf7f7;
+}
+
+.imageAndAdressWrapper {
+  grid-area: historyImage;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.adressImage {
+  display: grid;
+  width:100%;
+}
+
+.smallAdress {
+  display: grid;
+  align-self: end;
+  padding-left: 5px;
+}
+
+.smallAdress p {
+  margin: none;
+  padding: none;
+}
+
+.historyArticle {
+  grid-area: ourHistory;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.historyArticle img {
+  width: 100px;
+  padding: 1cm;
+}
+
+.employees {
+  display: grid;
+  grid-area: employees;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 15px; 
+
+}
+
+.employees .contentDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 10px;
+}
+
+.ourEmployeesHeader {
+  grid-column: 1/4;
+}
+
+.employees img {
+  width: 4cm;
+  margin-top: 10px;
+}
+
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  padding: 24px;
+  background-color: #fbf7f7;
+}
+
+ .footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+} 
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 5px;
+    color: #7bdcb5;
+}
+  
+li {
+    padding: 5px;
+} 
+
+
+
+body {
+
+    display: grid;
+    grid-template-areas: 
+      "icon nav"
+      "welcome welcome"
+      "historyImage historyImage"
+      "ourHistory ourHistory"
+      "employees employees"
+      "footer footer";
+  
+    grid-template-rows: 1fr ;
+    grid-template-columns: 1fr 1fr;
+  
+    font-family: "Libre Baskerville", serif;
+  
+}
+  
+  
+@media screen and (max-width: 430px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+    grid-template-areas:
+    "icon"
+    "nav"
+    "welcome"
+    "aboutUsImage"
+    "aboutUs"
+    "aboutUsOffers"
+    "footer"
+  }
+  header, nav {
+    text-align: center;
+    justify-self: center;
+  }
+  nav a {
+    margin: 0 10px;
+  }
+}
