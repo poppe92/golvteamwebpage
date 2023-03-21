@@ -1,16 +1,16 @@
 .logo img {
-    width: 100px;
+  width: 100px;
 }
-  
+
 .logo {
-    grid-area: icon;
+  grid-area: icon;
 }
 
 .right-menu {
-    display: grid;
-    grid-area: nav;
-    place-items: center;
-    justify-self: end;
+  display: grid;
+  grid-area: nav;
+  place-items: center;
+  justify-self: end;
 }
 
 .right-menu li a {
@@ -36,7 +36,7 @@
 
 .adressImage {
   display: grid;
-  width:100%;
+  width: 100%;
 }
 
 .smallAdress {
@@ -65,8 +65,7 @@
   display: grid;
   grid-area: employees;
   grid-template-columns: 1fr 2fr 1fr;
-  margin-bottom: 15px; 
-
+  margin-bottom: 15px;
 }
 
 .employees .contentDiv {
@@ -82,6 +81,7 @@
 .employees img {
   width: 4cm;
   margin-top: 10px;
+  padding-left: 15px;
 }
 
 .footer {
@@ -92,11 +92,11 @@
   background-color: #fbf7f7;
 }
 
- .footerLinks {
+.footerLinks {
   display: grid;
   align-self: center;
   justify-self: end;
-} 
+}
 
 .socialMediaLinks {
   margin-right: 50px;
@@ -111,55 +111,80 @@
 }
 
 ul {
-    list-style-type: none;
-    display: flex;
-    padding: 5px;
-    color: #7bdcb5;
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  color: #7bdcb5;
 }
-  
+
 li {
-    padding: 5px;
-} 
-
-
+  padding: 5px;
+}
 
 body {
+  display: grid;
+  grid-template-areas:
+    "icon nav"
+    "welcome welcome"
+    "historyImage historyImage"
+    "ourHistory ourHistory"
+    "employees employees"
+    "footer footer";
 
-    display: grid;
-    grid-template-areas: 
-      "icon nav"
-      "welcome welcome"
-      "historyImage historyImage"
-      "ourHistory ourHistory"
-      "employees employees"
-      "footer footer";
-  
-    grid-template-rows: 1fr ;
-    grid-template-columns: 1fr 1fr;
-  
-    font-family: "Libre Baskerville", serif;
-  
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  font-family: "Libre Baskerville", serif;
 }
-  
-  
+
 @media screen and (max-width: 430px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
     grid-template-areas:
-    "icon"
-    "nav"
-    "welcome"
-    "aboutUsImage"
-    "aboutUs"
-    "aboutUsOffers"
-    "footer"
+      "icon"
+      "nav"
+      "welcome"
+      "historyImage"
+      "ourHistory"
+      "employees"
+      "footer";
   }
-  header, nav {
-    text-align: center;
+  .logo {
     justify-self: center;
   }
-  nav a {
-    margin: 0 10px;
+
+  .right-menu {
+    justify-self: center;
+  }
+
+  .imageAndAdressWrapper {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .smallAdress p {
+    font-size: small;
+  }
+
+  .historyArticle {
+    grid-template-columns: 1fr;
+  }
+
+  .historyArticle h3 {
+    justify-self: center;
+    padding-top: 15px;
+  }
+
+  .historyArticle p {
+    text-align: center;
+  }
+
+  .historyArticle img {
+    justify-self: center;
+  }
+
+  .employees {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
   }
 }

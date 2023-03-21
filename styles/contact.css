@@ -1,11 +1,11 @@
 .logo img {
-    width: 100px;
+  width: 100px;
 }
-  
+
 .logo {
-    grid-area: icon;
+  grid-area: icon;
 }
-  
+
 .right-menu {
   display: grid;
   grid-area: nav;
@@ -69,7 +69,7 @@
 }
 
 .inputFields input:focus {
-  outline:none;
+  outline: none;
   border-color: #2fd895;
 }
 
@@ -117,11 +117,11 @@
   background-color: #fbf7f7;
 }
 
- .footerLinks {
+.footerLinks {
   display: grid;
   align-self: center;
   justify-self: end;
-} 
+}
 
 .socialMediaLinks {
   margin-right: 50px;
@@ -136,73 +136,72 @@
 }
 
 ul {
-    list-style-type: none;
-    display: flex;
-    padding: 5px;
-    color: #7bdcb5;
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  color: #7bdcb5;
 }
-  
-li {
-    padding: 5px;
-}
-  
-body {
-  
-    display: grid;
-    grid-template-areas: 
-      "icon . nav nav"
-      "contactUs contactUs contactUs contactUs"
-      ". dontHestitate adress ."
-      ". form openHours ."
-      "footer footer footer footer";
-  
-    grid-template-columns: 1fr 2fr 1fr 1fr;
 
-    /* justify-self: center; */
-    /* align-self: center; */
-  
-    font-family: "Libre Baskerville", serif;
-  
+li {
+  padding: 5px;
 }
-  
-  
+
+body {
+  display: grid;
+  grid-template-areas:
+    "icon . nav nav"
+    "contactUs contactUs contactUs contactUs"
+    ". dontHestitate adress ."
+    ". form openHours ."
+    "footer footer footer footer";
+
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+
+  /* justify-self: center; */
+  /* align-self: center; */
+
+  font-family: "Libre Baskerville", serif;
+}
+
 @media screen and (max-width: 430px) {
-    body {
-      grid-template-columns: calc(100%-2em);
-      grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
-      grid-template-areas:
+  body {
+    grid-template-columns: calc(100%-2em);
+    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+    grid-template-areas:
       "icon"
       "nav"
-      "contactUs" 
+      "contactUs"
       "dontHestitate"
       "adress"
       "openHours"
-      "form";
-      padding: 1em;
-    }
+      "form"
+      "footer";
+    padding: 1em;
+  }
 
-    .right-menu {
-      display: grid;
-      grid-area: nav;
-      text-align: left;
-      justify-self: left;
-      place-items: left;
-      padding: 0cm;
-    }
+  .logo {
+    justify-self: center;
+  }
 
-    .contactHeader {
-      /* grid-area: contactUs; */
-      /* font-size: xxx-large; */
-      padding: 0cm;
-      width: 100%;
-      /* padding: 1cm;; */
-    }
+  .right-menu {
+    justify-self: center;
+  }
 
-    .availableSchedule {
-      display: grid;
-      grid-area: openHours;
-      grid-template-columns: 1fr 2fr;
-      margin-bottom: 5px;
-    }
+  .contactHeader {
+    text-align: center;
+  }
 
+  .dontHesitateContactText {
+    text-align: center;
+  }
+
+  .adressAndEmail {
+    text-align: center;
+  }
+
+  .availableSchedule {
+    /* justify-self: center; */
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 25px;
+  }
 }

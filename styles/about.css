@@ -1,16 +1,16 @@
 .logo img {
-    width: 100px;
+  width: 100px;
 }
-  
+
 .logo {
-    grid-area: icon;
+  grid-area: icon;
 }
-  
+
 .right-menu {
-    display: grid;
-    grid-area: nav;
-    place-items: center;
-    justify-self: end;
+  display: grid;
+  grid-area: nav;
+  place-items: center;
+  justify-self: end;
 }
 
 .right-menu li a {
@@ -66,34 +66,6 @@
   width: 75%;
 }
 
-.footer {
-  display: grid;
-  grid-area: footer;
-  grid-template-columns: 2fr 1fr;
-  /* place-items: center; */
-  /* justify-self: end; */
-  padding: 24px;
-  background-color: #fbf7f7;
-}
-
-.footerLinks {
-  display: grid;
-  align-self: center;
-  justify-self: end;
-} 
-
-.socialMediaLinks {
-  margin-right: 50px;
-}
-
-.footer a {
-  padding: 13px;
-}
-
-.footer img {
-  max-width: 10cm;
-}
-
 .reviewDivider {
   display: grid;
   grid-area: reviewDivider;
@@ -130,54 +102,97 @@
   font-size: 2vw;
 }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    padding: 5px;
-    color: #7bdcb5;
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: 2fr 1fr;
+  /* place-items: center; */
+  /* justify-self: end; */
+  padding: 24px;
+  background-color: #fbf7f7;
 }
-  
+
+.footerLinks {
+  display: grid;
+  align-self: center;
+  justify-self: end;
+}
+
+.socialMediaLinks {
+  margin-right: 50px;
+}
+
+.footer a {
+  padding: 13px;
+}
+
+.footer img {
+  max-width: 10cm;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  color: #7bdcb5;
+}
+
 li {
-    padding: 5px;
+  padding: 5px;
 }
 
 body {
+  display: grid;
+  grid-template-areas:
+    "icon nav"
+    "generationsHeader generationsHeader"
+    "article article"
+    "reviewDivider reviewDivider"
+    "bookOrContact bookOrContact"
+    "footer footer";
 
-    display: grid;
-    grid-template-areas: 
-      "icon nav"
-      "generationsHeader generationsHeader"
-      "article article"
-      "reviewDivider reviewDivider"
-      "bookOrContact bookOrContact"
-      "footer footer";
-  
-    grid-template-rows: 1fr ;
-    grid-template-columns: 1fr 1fr;
-  
-    font-family: "Libre Baskerville", serif;
-  
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  font-family: "Libre Baskerville", serif;
 }
-  
-  
+
 @media screen and (max-width: 430px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
     grid-template-areas:
-    "icon"
-    "nav"
-    "welcome"
-    "aboutUsImage"
-    "aboutUs"
-    "aboutUsOffers"
-    "footer"
+      "icon"
+      "nav"
+      "generationsHeader"
+      "article"
+      "reviewDivider"
+      "bookOrContact"
+      "footer";
   }
-  header, nav {
-    text-align: center;
+  .logo {
     justify-self: center;
   }
-  nav a {
-    margin: 0 10px;
+
+  .right-menu {
+    justify-self: center;
+  }
+
+  .generationsHeader {
+    justify-self: center;
+  }
+
+  .articleWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contactUsImage h3 {
+    font-size: medium;
+  }
+
+  .contactUsImage figcaption {
+    position: absolute;
+    top: 2%;
+    right: 40%;
   }
 }
