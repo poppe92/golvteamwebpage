@@ -18,7 +18,7 @@
 }
 
 .container {
-  grid-area: contactUs;
+  grid-area: gallery;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -92,7 +92,7 @@ body {
   grid-template-areas:
     "icon nav"
     "previousWorkHeader previousWorkHeader"
-    "contactUs contactUs"
+    "gallery gallery"
     "footer footer";
 
   grid-template-columns: 1fr 1fr;
@@ -107,35 +107,17 @@ body {
     grid-template-areas:
       "icon"
       "nav"
-      "contactUs"
-      "dontHestitate"
-      "adress"
-      "openHours"
-      "form";
+      "previousWorkHeader"
+      "gallery"
+      "footer";
     padding: 1em;
   }
 
+  .logo {
+    justify-self: center;
+  }
+
   .right-menu {
-    display: grid;
-    grid-area: nav;
-    text-align: left;
-    justify-self: left;
-    place-items: left;
-    padding: 0cm;
-  }
-
-  .contactHeader {
-    /* grid-area: contactUs; */
-    /* font-size: xxx-large; */
-    padding: 0cm;
-    width: 100%;
-    /* padding: 1cm;; */
-  }
-
-  .availableSchedule {
-    display: grid;
-    grid-area: openHours;
-    grid-template-columns: 1fr 2fr;
-    margin-bottom: 5px;
+    justify-self: center;
   }
 }

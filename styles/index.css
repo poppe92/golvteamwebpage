@@ -33,7 +33,6 @@
   background-color: #fbf7f7;
 }
 
-
 .aboutUsText {
   grid-area: aboutUs;
   /* width: 90%; */
@@ -75,11 +74,11 @@
   background-color: #fbf7f7;
 }
 
- .footerLinks {
+.footerLinks {
   display: grid;
   align-self: center;
   justify-self: end;
-} 
+}
 
 .socialMediaLinks {
   margin-right: 50px;
@@ -105,41 +104,62 @@ li {
 }
 
 body {
-
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "icon nav"
     "welcome welcome"
     "aboutUsImage aboutUs"
     "aboutUsOffers aboutUsOffers"
     "footer footer";
 
-  grid-template-rows: 1fr ;
+  grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
 
   font-family: "Libre Baskerville", serif;
-
 }
-
 
 @media screen and (max-width: 430px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
     grid-template-areas:
-    "icon"
-    "nav"
-    "welcome"
-    "aboutUsImage"
-    "aboutUs"
-    "aboutUsOffers"
-    "footer"
+      "icon"
+      "nav"
+      "welcome"
+      "aboutUsImage"
+      "aboutUs"
+      "aboutUsOffers"
+      "footer";
   }
-  header, nav {
-    text-align: center;
+
+  .logo {
     justify-self: center;
   }
-  nav a {
+
+  .right-menu {
+    justify-self: center;
+  }
+
+  .welcomeText {
+    padding: 25px 0;
+  }
+
+  .aboutUsImage {
+    justify-self: center;
+    padding-top: 15px;
+  }
+
+  .aboutUsText {
+    /* justify-self: center; */
+    text-align: center;
+  }
+
+  .aboutUsIntro {
+    text-align: center;
+    justify-content: center;
+    padding-right: 0;
+    padding-bottom: 15px;
     margin: 0 10px;
+    font-size: medium;
   }
 }
