@@ -1,18 +1,47 @@
 .logo img {
-    width: 100px;
+  width: 100px;
 }
-  
+
 .logo {
-    grid-area: icon;
+  grid-area: icon;
 }
-  
+
 .right-menu {
-    display: grid;
-    grid-area: nav;
-    place-items: center;
-    justify-self: end;
+  display: grid;
+  grid-area: nav;
+  place-items: center;
+  justify-self: end;
 }
 
 .right-menu li a {
   color: #2fd895;
+}
+.article {
+  display: grid;
+  grid-area: contactUs;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  color: #7bdcb5;
+}
+
+li {
+  padding: 5px;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "icon nav"
+    "contactUs contactUs";
+
+  grid-template-columns: 1fr 1fr;
+
+  /* justify-self: center; */
+  /* align-self: center; */
+
+  font-family: "Libre Baskerville", serif;
 }
