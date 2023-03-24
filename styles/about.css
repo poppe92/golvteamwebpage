@@ -63,7 +63,6 @@
 }
 
 .kakelDiv img {
-  /* padding-top: 1cm; */
   width: 75%;
 }
 
@@ -88,8 +87,6 @@
 
 .contactUsImage a:visited {
   text-decoration: none;
-  /* color: #2fd895; */
-  /* color: blue; */
   color: #0066cc;
 }
 
@@ -114,8 +111,6 @@
   display: grid;
   grid-area: footer;
   grid-template-columns: 2fr 1fr;
-  /* place-items: center; */
-  /* justify-self: end; */
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -186,9 +181,12 @@ body {
       "reviewDivider"
       "bookOrContact"
       "footer";
+
+    margin: 0;
   }
   .logo {
     justify-self: center;
+    margin-top: 10px;
   }
 
   .right-menu {

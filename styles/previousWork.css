@@ -138,11 +138,12 @@ body {
       "gallery"
       "instagramDivider"
       "footer";
-    padding: 1em;
+    margin: 0;
   }
 
   .logo {
     justify-self: center;
+    margin-top: 10px;
   }
 
   .right-menu {
