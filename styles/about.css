@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -62,7 +63,6 @@
 }
 
 .kakelDiv img {
-  /* padding-top: 1cm; */
   width: 75%;
 }
 
@@ -83,6 +83,11 @@
   text-align: center;
   color: black;
   padding-bottom: 1cm;
+}
+
+.contactUsImage a:visited {
+  text-decoration: none;
+  color: #0066cc;
 }
 
 .contactUsImage img {
@@ -106,8 +111,6 @@
   display: grid;
   grid-area: footer;
   grid-template-columns: 2fr 1fr;
-  /* place-items: center; */
-  /* justify-self: end; */
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -120,6 +123,15 @@
 
 .socialMediaLinks {
   margin-right: 50px;
+}
+
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
 }
 
 .footer a {
@@ -169,9 +181,12 @@ body {
       "reviewDivider"
       "bookOrContact"
       "footer";
+
+    margin: 0;
   }
   .logo {
     justify-self: center;
+    margin-top: 10px;
   }
 
   .right-menu {

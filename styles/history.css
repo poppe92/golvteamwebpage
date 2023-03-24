@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -102,6 +103,15 @@
   margin-right: 50px;
 }
 
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
+}
+
 .footer a {
   padding: 13px;
 }
@@ -149,9 +159,12 @@ body {
       "ourHistory"
       "employees"
       "footer";
+
+    margin: 0;
   }
   .logo {
     justify-self: center;
+    margin-top: 10px;
   }
 
   .right-menu {
@@ -160,6 +173,7 @@ body {
 
   .imageAndAdressWrapper {
     grid-template-columns: 2fr 1fr;
+    padding: 20px;
   }
 
   .smallAdress p {
@@ -168,11 +182,11 @@ body {
 
   .historyArticle {
     grid-template-columns: 1fr;
+    padding: 20px;
   }
 
   .historyArticle h3 {
     justify-self: center;
-    padding-top: 15px;
   }
 
   .historyArticle p {
@@ -185,6 +199,6 @@ body {
 
   .employees {
     grid-template-columns: 1fr;
-    padding: 0 15px;
+    padding: 20px;
   }
 }

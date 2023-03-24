@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -35,7 +36,6 @@
 
 .aboutUsText {
   grid-area: aboutUs;
-  /* width: 90%; */
   background-color: #fbf7f7;
 }
 
@@ -60,16 +60,19 @@
   display: grid;
   grid-area: aboutUsOffers;
   place-items: center;
+  text-align: center;
   padding: 10%;
   color: #384143;
+}
+
+.aboutUsOffers a {
+  color: #2fd895;
 }
 
 .footer {
   display: grid;
   grid-area: footer;
   grid-template-columns: 2fr 1fr;
-  /* place-items: center; */
-  /* justify-self: end; */
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -86,6 +89,15 @@
 
 .footer a {
   padding: 13px;
+}
+
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
 }
 
 .footer img {
@@ -130,10 +142,13 @@ body {
       "aboutUs"
       "aboutUsOffers"
       "footer";
+
+    margin: 0;
   }
 
   .logo {
     justify-self: center;
+    margin-top: 10px;
   }
 
   .right-menu {
@@ -150,7 +165,6 @@ body {
   }
 
   .aboutUsText {
-    /* justify-self: center; */
     text-align: center;
   }
 
