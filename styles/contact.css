@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -22,8 +23,6 @@
   font-size: xxx-large;
   background-color: #fbf7f7;
   padding: 1cm;
-  /* text-align: center; */
-  /* padding-left: 1fr; */
 }
 
 .dontHesitateContactText {
@@ -37,6 +36,9 @@
 
 .adressAndEmail {
   grid-area: adress;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .adressAndEmail a {
@@ -68,8 +70,6 @@
   width: 100%;
   border: none;
   border-bottom: 2px solid #7bdcb5;
-  /* border: 2px solid #777;
-  border-radius: 13px;  */
 }
 
 .inputFields input:focus {
@@ -109,7 +109,7 @@
 }
 
 .messageDiv textarea {
-  height: 200px;
+  height: 30vh;
   resize: none;
 }
 
@@ -119,6 +119,7 @@
   grid-template-columns: 2fr 1fr;
   padding: 24px;
   background-color: #fbf7f7;
+  margin-top: auto;
 }
 
 .footerLinks {
@@ -129,6 +130,15 @@
 
 .socialMediaLinks {
   margin-right: 50px;
+}
+
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
 }
 
 .footer a {
@@ -161,8 +171,9 @@ body {
 
   grid-template-columns: 1fr 2fr 1fr 1fr;
 
-  /* justify-self: center; */
-  /* align-self: center; */
+  grid-template-rows: auto auto 1fr 2fr auto;
+
+  min-height: 100vh;
 
   font-family: "Libre Baskerville", serif;
 }
@@ -204,7 +215,6 @@ body {
   }
 
   .availableSchedule {
-    /* justify-self: center; */
     grid-template-columns: 1fr 1fr;
     padding-bottom: 25px;
   }

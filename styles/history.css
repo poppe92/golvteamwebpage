@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -100,6 +101,15 @@
 
 .socialMediaLinks {
   margin-right: 50px;
+}
+
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
 }
 
 .footer a {

@@ -11,6 +11,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
+  white-space: nowrap;
 }
 
 .right-menu li a {
@@ -85,6 +86,13 @@
   padding-bottom: 1cm;
 }
 
+.contactUsImage a:visited {
+  text-decoration: none;
+  /* color: #2fd895; */
+  /* color: blue; */
+  color: #0066cc;
+}
+
 .contactUsImage img {
   width: 100%;
   height: 100%;
@@ -120,6 +128,15 @@
 
 .socialMediaLinks {
   margin-right: 50px;
+}
+
+.socialMediaLinks a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.footer .footerContactLink {
+  color: #2fd895;
 }
 
 .footer a {
