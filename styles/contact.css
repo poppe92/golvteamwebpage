@@ -88,19 +88,17 @@
   border-color: #2fd895;
 }
 
-.inputFields #submitButton {
-  width: auto;
-}
-
-.inputFields button {
+.inputFields .submitButton {
+  font-size: 20px;
+  padding: 10px 40px;
+  transition-duration: 0.4s;
   border: 2px solid #7bdcb5;
-  background: #7bdcb5;
   border-radius: 5px;
+  background: #7bdcb5;
 }
 
-.inputFields button:hover {
-  border-color: #2fd895;
-  background: #2fd895;
+.inputFields .submitButton:hover {
+  background-color: white; /* Green */
   cursor: pointer;
 }
 

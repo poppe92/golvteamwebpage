@@ -1,147 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- For Icons to the homepage -->
-    <script src="https://kit.fontawesome.com/e991157a2f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e991157a2f.js"
+      crossorigin="anonymous"></script>
 
     <!-- The link to the style.css file -->
-    <link rel="stylesheet" type="text/css" href="../styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="../styles/contact.css" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
 
     <title>Kontakta Golvteam</title>
 
-    <meta name="description" content="GolvTeam AB's webpage for customers.">
-    <meta name="author" content="Jesper Nilsson">
+    <meta name="description" content="GolvTeam AB's webpage for customers." />
+    <meta name="author" content="Jesper Nilsson" />
+  </head>
 
-</head>
+  <body>
+    <div class="logo">
+      <a href="../index.html"><img src="../icons/GTIcon.png" /></a>
+    </div>
 
-<body>
-  <div class="logo">
-    <a href="../index.html"><img src="../icons/GTIcon.png" ></a>
-  </div>
+    <nav class="right-menu">
+      <ul>
+        <li>
+          <a href="../index.html">Start</a>
+        </li>
+        <li>
+          <a href="../subpages/about.html">Våra Erbjudanden</a>
+        </li>
+        <li>
+          <a href="../subpages/history.html">Vår Historia</a>
+        </li>
+        <li>
+          <a href="../subpages/previousWork.html">Tidigare Arbeten</a>
+        </li>
+        <li>
+          <a href="../subpages/contact.html">Kontakt</a>
+        </li>
+      </ul>
+    </nav>
 
-  <nav class="right-menu">
-    <ul>
-      <li>
-        <a href="../index.html">Start</a>
-      </li>
-      <li>
-        <a href="../subpages/about.html">Våra Erbjudanden</a>
-      </li>
-      <li>
-        <a href="../subpages/history.html">Vår Historia</a>
-      </li>
-      <li>
-        <a href="../subpages/previousWork.html">Tidigare Arbeten</a>
-      </li>
-      <li>
-        <a href="../subpages/contact.html">Kontakt</a>
-      </li>
-    </ul>
-  </nav>  
+    <h1 class="contactHeader">Kontakta Oss</h1>
+    <h2 class="dontHesitateContactText">
+      Tveka inte att höra av dig till oss med kontaktuppgifterna eller med
+      formuläret under.
+    </h2>
 
-  <h1 class="contactHeader">Kontakta Oss</h1>
-  <h2 class="dontHesitateContactText">
-    Tveka inte att höra av dig till oss med kontaktuppgifterna eller med formuläret under.
-  </h2>
-
-  <form 
-    class="inputFields" 
-    action="https://formsubmit.co/c5e23a314c02440653dbca71512b0d0b"
-    target="_blank"
-    method="POST"
-  >
+    <form
+      class="inputFields"
+      action="https://formsubmit.co/c5e23a314c02440653dbca71512b0d0b"
+      target="_blank"
+      method="POST">
       <div class="nameAndNumber">
         <div>
           <label for="firstName">Namn: </label>
-          <input 
-            name="Namn" 
-            type="text" 
-            id="firstName" 
-            placeholder="Ditt namn... " 
-            required
-          >
+          <input
+            name="Namn"
+            type="text"
+            id="firstName"
+            placeholder="Ditt namn... "
+            required />
         </div>
         <div>
           <label for="phoneNr">Tel: </label>
-          <input 
-            name="Telefon" 
-            type="tel" 
-            id="phoneNr" 
-            placeholder="Ditt telefonnummer... " 
-            required
-          > 
+          <input
+            name="Telefon"
+            type="tel"
+            id="phoneNr"
+            placeholder="Ditt telefonnummer... "
+            required />
         </div>
       </div>
 
       <div class="emailDiv">
         <label for="email">E-post: </label>
-        <input 
-          name="Epost" 
-          type="email" 
-          id="email" 
-          placeholder="Din e-post... " 
-          required
-        >
+        <input
+          name="Epost"
+          type="email"
+          id="email"
+          placeholder="Din e-post... "
+          required />
       </div>
 
       <div class="messageDiv">
         <label for="email">Meddelande: </label>
-        <textarea 
-          name="Meddelande" 
-          id="subject" 
-          placeholder="Förklara kort önskat arbete..." 
+        <textarea
+          name="Meddelande"
+          id="subject"
+          placeholder="Förklara kort önskat arbete..."
           required>
         </textarea>
       </div>
 
-      <button type="submit">Skicka</button>
+      <button type="submit" class="submitButton">Skicka</button>
+    </form>
 
-  </form>
+    <div class="adressAndEmail">
+      <p>Adress: Betesvägen 14, 29477, Sölvesborg</p>
+      <p>
+        Epost:
+        <a href="mailto:jonas.golvteam@oktv.se">jonas.golvteam@oktv.se</a>
+      </p>
+      <p>Tel: (+46) 708 221988</p>
+    </div>
 
-  <div class="adressAndEmail">
-    <p>Adress: Betesvägen 14, 29477, Sölvesborg</p>
-    <p>Epost: <a href="mailto:jonas.golvteam@oktv.se">jonas.golvteam@oktv.se</a></p>
-    <p>Tel: (+46) 708 221988</p>
-  </div>
+    <aside class="availableSchedule">
+      <p>Måndag</p>
+      <p>8:00 – 17:00</p>
+      <p>Tisdag</p>
+      <p>8:00 – 17:00</p>
+      <p>Onsdag</p>
+      <p>8:00 – 17:00</p>
+      <p>Torsdag</p>
+      <p>8:00 – 17:00</p>
+      <p>Fredag</p>
+      <p>8:00 – 17:00</p>
+      <p>Lördag</p>
+      <p>Stängt</p>
+      <p>Söndag</p>
+      <p>Stängt</p>
+    </aside>
 
-  <aside class="availableSchedule">
-    <p>Måndag</p>
-    <p>8:00 – 17:00 </p>
-    <p>Tisdag</p>
-    <p>8:00 – 17:00 </p>
-    <p>Onsdag</p>
-    <p>8:00 – 17:00 </p>
-    <p>Torsdag</p>
-    <p>8:00 – 17:00 </p>
-    <p>Fredag</p>
-    <p>8:00 – 17:00 </p>
-    <p>Lördag</p>
-    <p>Stängt</p>
-    <p>Söndag</p>
-    <p>Stängt</p>
-  </aside>
+    <footer class="footer">
+      <img src="../icons/GolvTeamHeader.png" alt="" />
 
-  <footer class="footer">
-    <img src="../icons/GolvTeamHeader.png" alt="">
-
-    <div class="footerLinks">
-      <a href="../subpages/contact.html" class="footerContactLink">Kontakt</a>
-      <!-- <a href="/writing/contact.html">Contact</a>
+      <div class="footerLinks">
+        <a href="../subpages/contact.html" class="footerContactLink">Kontakt</a>
+        <!-- <a href="/writing/contact.html">Contact</a>
       <a href="/writing/contact.html">Contact</a>
       <a href="/writing/contact.html">Contact</a>
       <a href="/writing/contact.html">Contact</a>
       <a href="/writing/contact.html">Contact</a> -->
 
-      <div class="socialMediaLinks">
-        <a href="https://www.facebook.com/jonas.nilsson.794" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/golvteamab/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <div class="socialMediaLinks">
+          <a href="https://www.facebook.com/jonas.nilsson.794" target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/golvteamab/" target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
       </div>
-
-    </div>
-  </footer>
-
-</body>
+    </footer>
+  </body>
 </html>

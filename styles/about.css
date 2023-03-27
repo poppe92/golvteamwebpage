@@ -30,7 +30,7 @@
 .articleWrapper {
   display: grid;
   grid-area: article;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .mattorDiv {
@@ -41,6 +41,17 @@
 }
 
 .mattorDiv img {
+  width: 75%;
+}
+
+.plastMattaDiv {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.5cm;
+}
+
+.plastMattaDiv img {
   width: 75%;
 }
 
