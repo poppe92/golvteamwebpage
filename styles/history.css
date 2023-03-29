@@ -55,6 +55,7 @@
   grid-area: ourHistory;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  font-size: x-large;
 }
 
 .historyArticle img {
@@ -71,11 +72,17 @@
 
 .employees .contentDiv {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   padding-bottom: 10px;
+  text-align: center;
+}
+
+.employees h2 {
+  margin-right: 10px;
 }
 
 .ourEmployeesHeader {
+  text-align: left;
   grid-column: 1/4;
 }
 
@@ -83,6 +90,7 @@
   width: 4cm;
   margin-top: 10px;
   padding-left: 15px;
+  justify-self: center;
 }
 
 .footer {
@@ -183,6 +191,7 @@ body {
   .historyArticle {
     grid-template-columns: 1fr;
     padding: 20px;
+    font-size: large;
   }
 
   .historyArticle h3 {
