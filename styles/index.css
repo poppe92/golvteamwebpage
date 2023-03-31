@@ -27,16 +27,21 @@
   color: #384143;
 }
 
-.aboutUsImage {
+.aboutUsDiv {
   display: grid;
-  grid-area: aboutUsImage;
-  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-area: aboutUsDiv;
   background-color: #fbf7f7;
 }
 
+.aboutUsImage {
+  display: grid;
+  place-items: center;
+  padding: 1cm 0;
+}
+
 .aboutUsText {
-  grid-area: aboutUs;
-  background-color: #fbf7f7;
+  align-self: center;
 }
 
 .aboutUsHeader {
@@ -44,6 +49,7 @@
   font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 25px;
+  margin-bottom: 4em;
 }
 
 .aboutUsIntro {
@@ -120,7 +126,7 @@ body {
   grid-template-areas:
     "icon nav"
     "welcome welcome"
-    "aboutUsImage aboutUs"
+    "aboutUsDiv aboutUsDiv"
     "aboutUsOffers aboutUsOffers"
     "footer footer";
 
@@ -138,8 +144,8 @@ body {
       "icon"
       "nav"
       "welcome"
-      "aboutUsImage"
-      "aboutUs"
+      "aboutUsDiv"
+      "aboutUsDiv"
       "aboutUsOffers"
       "footer";
 
@@ -159,6 +165,10 @@ body {
     padding: 25px 0;
   }
 
+  .aboutUsDiv {
+    grid-template-columns: 1fr;
+  }
+
   .aboutUsImage {
     justify-self: center;
     padding-top: 15px;
@@ -166,6 +176,10 @@ body {
 
   .aboutUsText {
     text-align: center;
+  }
+
+  .aboutUsHeader {
+    margin-bottom: 2em;
   }
 
   .aboutUsIntro {
