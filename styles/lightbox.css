@@ -1,204 +1,242 @@
+/**
+ * lightbox.css — Styles for the vanilla JS lightbox.
+ *
+ * Layout overview:
+ *
+ *   .lightboxOverlay        Fixed full-viewport dark backdrop (z-index 9999)
+ *   .lightbox               Fixed full-viewport flex wrapper (z-index 10000)
+ *     .lb-content           Column flex container; constrains the total size
+ *       .lb-dataContainer   Caption bar rendered ABOVE the image
+ *         .lb-data
+ *           .lb-details
+ *             .lb-caption   Description text (from data-title)
+ *             .lb-number    "image X of Y" counter
+ *           .lb-close       Close button (×)
+ *       .lb-outerContainer  Image frame
+ *         .lb-image         The photo; sized via object-fit, no JS math needed
+ *         .lb-loader        Spinner centred over the image while it loads
+ *         .lb-nav           Invisible overlay split into prev (left) / next (right)
+ *           .lb-prev
+ *           .lb-next
+ *
+ * Sizing strategy:
+ *   All size constraints live here in CSS (.lb-content max-width / max-height).
+ *   The JS never calculates pixel dimensions — it only adds/removes classes and
+ *   sets image src / caption text.
+ */
+
+/* Prevent the page from scrolling while the lightbox is open. */
 body.lb-disable-scrolling {
   overflow: hidden;
 }
 
+/* ─── Backdrop ────────────────────────────────────────────────────────────── */
+
+/* Covers the entire viewport with a semi-transparent dark layer.
+   position:fixed ensures it stays put even when the page has been scrolled. */
 .lightboxOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 9999;
-  background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.85);
   display: none;
 }
 
+/* ─── Dialog wrapper ──────────────────────────────────────────────────────── */
+
+/* Full-viewport fixed container that centres its child with flexbox.
+   Hidden by default; the .lb-open class switches it to display:flex. */
 .lightbox {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 10000;
-  text-align: center;
-  line-height: 0;
-  font-weight: normal;
-  outline: none;
-}
-
-.lightbox .lb-image {
-  display: block;
-  height: auto;
-  max-width: inherit;
-  max-height: none;
-  border-radius: 3px;
-
-  /* Image border */
-  border: 4px solid white;
-}
-
-.lightbox a img {
-  border: none;
-}
-
-.lb-outerContainer {
-  position: relative;
-  *zoom: 1;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  border-radius: 4px;
-
-  /* Background color behind image.
-     This is visible during transitions. */
-  background-color: white;
-}
-
-.lb-outerContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.lb-loader {
-  position: absolute;
-  top: 43%;
-  left: 0;
-  height: 25%;
-  width: 100%;
-  text-align: center;
-  line-height: 0;
-}
-
-.lb-cancel {
-  display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  background: url(../images/loading.gif) no-repeat;
-}
-
-.lb-nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  z-index: 10;
-}
-
-.lb-container > .nav {
-  left: 0;
-}
-
-.lb-nav a {
-  outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
-}
-
-.lb-prev, .lb-next {
   height: 100%;
-  cursor: pointer;
-  display: block;
+  z-index: 10000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  outline: none;
 }
 
-.lb-nav a.lb-prev {
-  width: 34%;
-  left: 0;
-  float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+/* Added by JS when the lightbox is opened. */
+.lightbox.lb-open {
+  display: flex;
 }
 
-.lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
+/* ─── Content column ──────────────────────────────────────────────────────── */
+
+/* Stacks caption bar and image in a column.
+   max-width / max-height control how large the lightbox can grow;
+   adjust these values to change the displayed image size. */
+.lb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 50vw;   /* At most 50% of the viewport width  */
+  max-height: 90vh;  /* At most 90% of the viewport height */
 }
 
-.lb-nav a.lb-next {
-  width: 64%;
-  right: 0;
-  float: right;
-  background: url(../images/next.png) right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
+/* ─── Caption bar (above the image) ──────────────────────────────────────── */
 
 .lb-dataContainer {
-  margin: 0 auto;
-  padding-top: 5px;
-  *zoom: 1;
-  width: 100%;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6px 4px;
+  line-height: normal;
 }
 
-.lb-dataContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
+/* Flex row: description text on the left, close button on the right. */
 .lb-data {
-  padding: 0 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
   color: #ccc;
 }
 
 .lb-data .lb-details {
-  width: 85%;
-  float: left;
   text-align: left;
-  line-height: 1.1em;
+  line-height: 1.3em;
+  flex: 1;
 }
 
+/* Description text from data-title. */
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
-  line-height: 1em;
+  line-height: 1.2em;
+  display: block;
 }
 
 .lb-data .lb-caption a {
   color: #4ae;
 }
 
+/* "image X of Y" counter shown below the caption. */
 .lb-data .lb-number {
   display: block;
-  clear: left;
-  padding-bottom: 1em;
   font-size: 12px;
   color: #999999;
+  margin-top: 2px;
 }
 
+/* Close (×) button — image asset from images/close.png. */
 .lb-data .lb-close {
   display: block;
-  float: right;
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
-  background: url(../images/close.png) top right no-repeat;
-  text-align: right;
+  margin-left: 8px;
+  background: url(../images/close.png) center center no-repeat;
+  background-size: contain;
   outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
 .lb-data .lb-close:hover {
   cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* ─── Image container ─────────────────────────────────────────────────────── */
+
+/* Wraps the image, spinner, and nav hit areas.
+   flex-shrink:0 prevents the container from collapsing when the caption is tall. */
+.lb-outerContainer {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #111;
+}
+
+/* The photo itself.
+   width/height 100% fills the outerContainer; object-fit:contain keeps the
+   aspect ratio correct without any JS size calculations. */
+.lb-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 4px solid white;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* ─── Loading spinner ─────────────────────────────────────────────────────── */
+
+/* Centred absolutely over the image area while the image is fetching. */
+.lb-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animated GIF spinner asset from images/loading.gif. */
+.lb-cancel {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url(../images/loading.gif) no-repeat center center;
+}
+
+/* ─── Prev / next navigation ──────────────────────────────────────────────── */
+
+/* Invisible overlay covering the whole image area.
+   Split into a left (prev) and right (next) zone below. */
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.lb-nav a {
+  outline: none;
+}
+
+/* Both arrows are invisible by default; they fade in on hover. */
+.lb-prev,
+.lb-next {
+  height: 100%;
+  cursor: pointer;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Left 34% of the image — shows the left-arrow icon on hover. */
+.lb-nav a.lb-prev {
+  width: 34%;
+  float: left;
+  background: url(../images/prev.png) left 48% no-repeat;
+}
+
+.lb-nav a.lb-prev:hover {
+  opacity: 1;
+}
+
+/* Right 64% of the image — shows the right-arrow icon on hover.
+   (34 + 64 = 98; the remaining 2% is the border.) */
+.lb-nav a.lb-next {
+  width: 64%;
+  float: right;
+  background: url(../images/next.png) right 48% no-repeat;
+}
+
+.lb-nav a.lb-next:hover {
   opacity: 1;
 }
