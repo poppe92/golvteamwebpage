@@ -63,33 +63,32 @@
   let captionEl = null; // Text description (data-title)
   let numberEl = null;  // "image X of Y" counter
   let loaderEl = null;  // Spinner shown while the image loads
-  let prevEl = null;    // Previous-image click zone (left third of image)
-  let nextEl = null;    // Next-image click zone (right two-thirds of image)
-  let closeEl = null;   // Close button (×) in the caption bar
+  let prevEl = null;    // Previous-image button (fixed left-centre of viewport)
+  let nextEl = null;    // Next-image button (fixed right-centre of viewport)
+  let closeEl = null;   // Close button (fixed top-right of viewport)
 
   /**
    * buildOverlay — creates the lightbox DOM and appends it to <body>.
    * Called lazily on first open so we don't add DOM nodes unnecessarily.
    * Safe to call multiple times — returns immediately if already built.
    *
-   * DOM structure produced:
-   *
-   *   .lightboxOverlay          — fixed full-viewport dark backdrop
-   *   .lightbox                 — fixed full-viewport flex centering wrapper
-   *     .lb-content             — column flex: caption bar stacked above image
-   *       .lb-dataContainer     — caption bar
-   *         .lb-data
-   *           .lb-details
-   *             .lb-caption     — description text
-   *             .lb-number      — "image X of Y"
-   *           .lb-close         — close button
-   *       .lb-outerContainer    — image frame
-   *         .lb-container
-   *           .lb-image         — the <img>
-   *           .lb-loader        — spinner overlay (shown during load)
-   *           .lb-nav           — invisible prev/next hit areas
-   *             .lb-prev
-   *             .lb-next
+ * DOM structure produced:
+ *
+ *   .lightboxOverlay          — fixed full-viewport dark backdrop
+ *   .lightbox                 — fixed full-viewport flex centering wrapper
+ *     .lb-content             — column flex: caption bar stacked above image
+ *       .lb-dataContainer     — caption bar
+ *         .lb-data
+ *           .lb-details
+ *             .lb-caption     — description text
+ *             .lb-number      — "image X of Y"
+ *       .lb-outerContainer    — image frame
+ *         .lb-container
+ *           .lb-image         — the <img>
+ *           .lb-loader        — spinner overlay (shown during load)
+ *     .lb-close               — close button (fixed top-right of viewport)
+ *     .lb-prev                — prev arrow (fixed left-centre of viewport)
+ *     .lb-next                — next arrow (fixed right-centre of viewport)
    */
   const buildOverlay = () => {
     if (overlay) {
@@ -129,13 +128,7 @@
     details.appendChild(captionEl);
     details.appendChild(numberEl);
 
-    closeEl = document.createElement("a");
-    closeEl.className = "lb-close";
-    closeEl.setAttribute("href", "#");
-    closeEl.setAttribute("aria-label", "Close");
-
     data.appendChild(details);
-    data.appendChild(closeEl);
     dataContainer.appendChild(data);
 
     // --- Image container ---
@@ -158,9 +151,21 @@
     cancel.setAttribute("href", "#");
     loaderEl.appendChild(cancel);
 
-    // Invisible prev/next hit areas overlaid on the image.
-    const nav = document.createElement("div");
-    nav.className = "lb-nav";
+    container.appendChild(imageEl);
+    container.appendChild(loaderEl);
+    outer.appendChild(container);
+
+    // Assemble: caption bar → image
+    content.appendChild(dataContainer);
+    content.appendChild(outer);
+    lightbox.appendChild(content);
+
+    // --- Viewport-fixed controls (siblings of .lb-content inside .lightbox) ---
+
+    closeEl = document.createElement("a");
+    closeEl.className = "lb-close";
+    closeEl.setAttribute("href", "#");
+    closeEl.setAttribute("aria-label", "Close");
 
     prevEl = document.createElement("a");
     prevEl.className = "lb-prev";
@@ -172,18 +177,9 @@
     nextEl.setAttribute("href", "#");
     nextEl.setAttribute("aria-label", "Next image");
 
-    nav.appendChild(prevEl);
-    nav.appendChild(nextEl);
-
-    container.appendChild(imageEl);
-    container.appendChild(loaderEl);
-    container.appendChild(nav);
-    outer.appendChild(container);
-
-    // Assemble: caption bar → image
-    content.appendChild(dataContainer);
-    content.appendChild(outer);
-    lightbox.appendChild(content);
+    lightbox.appendChild(closeEl);
+    lightbox.appendChild(prevEl);
+    lightbox.appendChild(nextEl);
 
     document.body.appendChild(overlay);
     document.body.appendChild(lightbox);
