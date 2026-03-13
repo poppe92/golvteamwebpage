@@ -11,13 +11,12 @@
  *           .lb-details
  *             .lb-caption   Description text (from data-title)
  *             .lb-number    "image X of Y" counter
- *           .lb-close       Close button (×)
  *       .lb-outerContainer  Image frame
  *         .lb-image         The photo; sized via object-fit, no JS math needed
  *         .lb-loader        Spinner centred over the image while it loads
- *         .lb-nav           Invisible overlay split into prev (left) / next (right)
- *           .lb-prev
- *           .lb-next
+ *     .lb-close             Close button — fixed to viewport top-right
+ *     .lb-prev              Prev arrow  — fixed to viewport left-centre
+ *     .lb-next              Next arrow  — fixed to viewport right-centre
  *
  * Sizing strategy:
  *   All size constraints live here in CSS (.lb-content max-width / max-height).
@@ -90,10 +89,10 @@ body.lb-disable-scrolling {
   line-height: normal;
 }
 
-/* Flex row: description text on the left, close button on the right. */
+/* Flex row: description text on the left. */
 .lb-data {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
   color: #ccc;
@@ -125,21 +124,26 @@ body.lb-disable-scrolling {
   margin-top: 2px;
 }
 
-/* Close (×) button — image asset from images/close.png. */
-.lb-data .lb-close {
+/* ─── Close button — fixed to viewport top-right corner ───────────────────── */
+
+/* Positioned on .lightbox (fixed full-viewport wrapper) so it never moves
+   regardless of the displayed image size. */
+.lb-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
   display: block;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  margin-left: 8px;
+  width: 36px;
+  height: 36px;
   background: url(../images/close.png) center center no-repeat;
   background-size: contain;
   outline: none;
   opacity: 0.7;
   transition: opacity 0.2s;
+  z-index: 10;
 }
 
-.lb-data .lb-close:hover {
+.lb-close:hover {
   cursor: pointer;
   opacity: 1;
 }
@@ -191,52 +195,43 @@ body.lb-disable-scrolling {
   background: url(../images/loading.gif) no-repeat center center;
 }
 
-/* ─── Prev / next navigation ──────────────────────────────────────────────── */
+/* ─── Prev / next navigation — fixed to viewport sides ───────────────────── */
 
-/* Invisible overlay covering the whole image area.
-   Split into a left (prev) and right (next) zone below. */
-.lb-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-
-.lb-nav a {
-  outline: none;
-}
-
-/* Both arrows are invisible by default; they fade in on hover. */
+/* Both arrows sit on the .lightbox fixed wrapper so their position is
+   always relative to the viewport, never the image. */
 .lb-prev,
 .lb-next {
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 80px;
   cursor: pointer;
   display: block;
-  opacity: 0;
-  transition: opacity 0.3s;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
-/* Left 34% of the image — shows the left-arrow icon on hover. */
-.lb-nav a.lb-prev {
-  width: 34%;
-  float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
+/* Left edge of the viewport. */
+.lb-prev {
+  left: 16px;
+  background-image: url(../images/prev.png);
 }
 
-.lb-nav a.lb-prev:hover {
+.lb-prev:hover {
   opacity: 1;
 }
 
-/* Right 64% of the image — shows the right-arrow icon on hover.
-   (34 + 64 = 98; the remaining 2% is the border.) */
-.lb-nav a.lb-next {
-  width: 64%;
-  float: right;
-  background: url(../images/next.png) right 48% no-repeat;
+/* Right edge of the viewport. */
+.lb-next {
+  right: 16px;
+  background-image: url(../images/next.png);
 }
 
-.lb-nav a.lb-next:hover {
+.lb-next:hover {
   opacity: 1;
 }
