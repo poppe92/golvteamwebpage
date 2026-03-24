@@ -1,3 +1,13 @@
+.logo img,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .logo img {
   width: 100px;
 }
@@ -11,7 +21,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
-  white-space: nowrap;
+  padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
 .right-menu li a {
@@ -25,6 +35,9 @@
   font-size: x-large;
   font-weight: lighter;
   color: #384143;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  text-align: center;
 }
 
 .aboutUsDiv {
@@ -42,6 +55,7 @@
 
 .aboutUsText {
   align-self: center;
+  padding: 1rem 1.5rem 1rem 0;
 }
 
 .aboutUsHeader {
@@ -49,13 +63,14 @@
   font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 25px;
-  margin-bottom: 4em;
+  margin-bottom: 1.5rem;
 }
 
 .aboutUsIntro {
   font-size: xx-large;
-  padding-right: 2cm;
+  padding-right: 1rem;
   color: #384143;
+  line-height: 1.5;
 }
 
 .aboutUsImage img {
@@ -69,6 +84,7 @@
   text-align: center;
   padding: 10%;
   color: #384143;
+  gap: 1rem;
 }
 
 .aboutUsOffers a {
@@ -78,7 +94,9 @@
 .footer {
   display: grid;
   grid-area: footer;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -87,10 +105,15 @@
   display: grid;
   align-self: center;
   justify-self: end;
+  gap: 0.5rem;
+  text-align: right;
 }
 
 .socialMediaLinks {
-  margin-right: 50px;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .footer a {
@@ -107,18 +130,22 @@
 }
 
 .footer img {
-  max-width: 10cm;
+  width: min(100%, 320px);
 }
 
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.75rem;
   padding: 5px;
+  margin: 0;
   color: #7bdcb5;
 }
 
 li {
-  padding: 5px;
+  padding: 0;
 }
 
 body {
@@ -134,9 +161,11 @@ body {
   grid-template-columns: 1fr 1fr;
 
   font-family: "Libre Baskerville", serif;
+  margin: 0;
+  line-height: 1.6;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
@@ -149,7 +178,6 @@ body {
       "aboutUsOffers"
       "footer";
 
-    margin: 0;
   }
 
   .logo {
@@ -159,10 +187,17 @@ body {
 
   .right-menu {
     justify-self: center;
+    padding: 0 1rem 1rem;
+    width: min(100%, 34rem);
+  }
+
+  ul {
+    justify-content: center;
   }
 
   .welcomeText {
-    padding: 25px 0;
+    padding: 1.5rem 1rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .aboutUsDiv {
@@ -176,10 +211,11 @@ body {
 
   .aboutUsText {
     text-align: center;
+    padding: 0 1rem 1.5rem;
   }
 
   .aboutUsHeader {
-    margin-bottom: 2em;
+    margin: 0.5rem 0 1rem;
   }
 
   .aboutUsIntro {
@@ -187,7 +223,32 @@ body {
     justify-content: center;
     padding-right: 0;
     padding-bottom: 15px;
-    margin: 0 10px;
-    font-size: medium;
+    margin: 0;
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
+  }
+
+  .aboutUsOffers {
+    padding: 2rem 1.25rem;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footerLinks {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .socialMediaLinks {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aboutUsOffers {
+    padding: 1.5rem 1rem;
   }
 }

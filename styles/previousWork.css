@@ -1,3 +1,13 @@
+.logo img,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .logo img {
   width: 100px;
 }
@@ -11,7 +21,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
-  white-space: nowrap;
+  padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
 .right-menu li a {
@@ -24,11 +34,11 @@
   padding: 0;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 8%;
+  padding: 2.5rem 6%;
 }
 
 .previousWorkHeader {
@@ -39,16 +49,22 @@
   padding: 1cm;
   text-align: center;
   background-color: #fbf7f7;
+  margin: 0;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 30px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
 }
 
 .gallery img {
   width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
 }
 
 .instagramDivider {
@@ -70,7 +86,9 @@
 .footer {
   display: grid;
   grid-area: footer;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -79,10 +97,15 @@
   display: grid;
   align-self: center;
   justify-self: end;
+  gap: 0.5rem;
+  text-align: right;
 }
 
 .socialMediaLinks {
-  margin-right: 50px;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .socialMediaLinks a:visited {
@@ -99,18 +122,22 @@
 }
 
 .footer img {
-  max-width: 10cm;
+  width: min(100%, 320px);
 }
 
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.75rem;
   padding: 5px;
+  margin: 0;
   color: #7bdcb5;
 }
 
 li {
-  padding: 5px;
+  padding: 0;
 }
 
 body {
@@ -125,11 +152,13 @@ body {
   grid-template-columns: 1fr 1fr;
 
   font-family: "Libre Baskerville", serif;
+  margin: 0;
+  line-height: 1.6;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   body {
-    grid-template-columns: calc(100%-2em);
+    grid-template-columns: calc(100% - 2em);
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
     grid-template-areas:
       "icon"
@@ -138,7 +167,8 @@ body {
       "gallery"
       "instagramDivider"
       "footer";
-    margin: 0;
+    gap: 0.5rem;
+    padding: 0 1rem;
   }
 
   .logo {
@@ -148,5 +178,44 @@ body {
 
   .right-menu {
     justify-self: center;
+    padding: 0 0 1rem;
+    width: min(100%, 34rem);
+  }
+
+  ul {
+    justify-content: center;
+  }
+
+  .previousWorkHeader {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    padding: 1rem 0 1.5rem;
+    align-items: flex-start;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .instagramDivider {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footerLinks {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .socialMediaLinks {
+    justify-content: center;
   }
 }

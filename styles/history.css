@@ -1,3 +1,13 @@
+.logo img,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .logo img {
   width: 100px;
 }
@@ -11,7 +21,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
-  white-space: nowrap;
+  padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
 .right-menu li a {
@@ -27,12 +37,16 @@
   color: #384143;
   padding: 1cm;
   background-color: #fbf7f7;
+  margin: 0;
+  text-align: center;
 }
 
 .imageAndAdressWrapper {
   grid-area: historyImage;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
 }
 
 .adressImage {
@@ -47,8 +61,9 @@
 }
 
 .smallAdress p {
-  margin: none;
-  padding: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
 }
 
 .historyArticle {
@@ -56,6 +71,9 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   font-size: x-large;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem;
 }
 
 .historyArticle img {
@@ -68,6 +86,7 @@
   grid-area: employees;
   grid-template-columns: 1fr 2fr 1fr;
   margin-bottom: 15px;
+  padding: 0 1.5rem 1.5rem;
 }
 
 .employees .contentDiv {
@@ -75,6 +94,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   padding-bottom: 10px;
   text-align: center;
+  gap: 1rem;
 }
 
 .employees h2 {
@@ -84,10 +104,11 @@
 .ourEmployeesHeader {
   text-align: left;
   grid-column: 1/4;
+  margin-bottom: 0;
 }
 
 .employees img {
-  width: 4cm;
+  width: min(12rem, 100%);
   margin-top: 10px;
   padding-left: 15px;
   justify-self: center;
@@ -96,7 +117,9 @@
 .footer {
   display: grid;
   grid-area: footer;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
 }
@@ -105,10 +128,15 @@
   display: grid;
   align-self: center;
   justify-self: end;
+  gap: 0.5rem;
+  text-align: right;
 }
 
 .socialMediaLinks {
-  margin-right: 50px;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .socialMediaLinks a:visited {
@@ -125,18 +153,22 @@
 }
 
 .footer img {
-  max-width: 10cm;
+  width: min(100%, 320px);
 }
 
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.75rem;
   padding: 5px;
+  margin: 0;
   color: #7bdcb5;
 }
 
 li {
-  padding: 5px;
+  padding: 0;
 }
 
 body {
@@ -153,9 +185,11 @@ body {
   grid-template-columns: 1fr 1fr;
 
   font-family: "Libre Baskerville", serif;
+  margin: 0;
+  line-height: 1.6;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
@@ -168,8 +202,8 @@ body {
       "employees"
       "footer";
 
-    margin: 0;
   }
+
   .logo {
     justify-self: center;
     margin-top: 10px;
@@ -177,20 +211,28 @@ body {
 
   .right-menu {
     justify-self: center;
+    padding: 0 1rem 1rem;
+    width: min(100%, 34rem);
+  }
+
+  ul {
+    justify-content: center;
   }
 
   .imageAndAdressWrapper {
-    grid-template-columns: 2fr 1fr;
-    padding: 20px;
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+    justify-items: center;
   }
 
   .smallAdress p {
-    font-size: small;
+    font-size: 0.95rem;
+    text-align: center;
   }
 
   .historyArticle {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 0 1rem 1.5rem;
     font-size: large;
   }
 
@@ -208,6 +250,35 @@ body {
 
   .employees {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 0 1rem 1.5rem;
+  }
+
+  .employees .contentDiv {
+    grid-template-columns: 1fr;
+  }
+
+  .ourEmployeesHeader {
+    grid-column: auto;
+    text-align: center;
+  }
+
+  .employees img {
+    padding-left: 0;
+    width: min(14rem, 65vw);
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footerLinks {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .socialMediaLinks {
+    justify-content: center;
   }
 }

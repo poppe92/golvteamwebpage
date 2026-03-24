@@ -1,3 +1,13 @@
+.logo img,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .logo img {
   width: 100px;
 }
@@ -11,7 +21,7 @@
   grid-area: nav;
   place-items: center;
   justify-self: end;
-  white-space: nowrap;
+  padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
 .right-menu li a {
@@ -23,6 +33,8 @@
   font-size: xxx-large;
   background-color: #fbf7f7;
   padding: 1cm;
+  margin: 0;
+  text-align: center;
 }
 
 .dontHesitateContactText {
@@ -31,7 +43,8 @@
   justify-content: center;
   align-items: center;
   padding-right: 1cm;
-  margin-top: 0cm;
+  margin: 0;
+  text-align: center;
 }
 
 .adressAndEmail {
@@ -39,6 +52,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.5rem;
 }
 
 .adressAndEmail a {
@@ -49,6 +63,8 @@
   display: grid;
   grid-area: openHours;
   grid-template-columns: 1fr 2fr;
+  gap: 0.5rem 1rem;
+  align-content: start;
 }
 
 .inputFields {
@@ -65,11 +81,15 @@
 
 .inputFields label {
   display: block;
+  margin-bottom: 0.35rem;
 }
+
 .inputFields input {
   width: 100%;
   border: none;
   border-bottom: 2px solid #7bdcb5;
+  padding: 0.75rem 0.25rem;
+  font: inherit;
 }
 
 .inputFields input:focus {
@@ -81,6 +101,8 @@
   width: 100%;
   border: 2px solid #7bdcb5;
   border-radius: 5px;
+  padding: 0.75rem;
+  font: inherit;
 }
 
 .inputFields textarea:focus {
@@ -95,6 +117,7 @@
   border: 2px solid #7bdcb5;
   border-radius: 5px;
   background: #7bdcb5;
+  margin-top: 1rem;
 }
 
 .inputFields .submitButton:hover {
@@ -114,7 +137,9 @@
 .footer {
   display: grid;
   grid-area: footer;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
   margin-top: auto;
@@ -124,10 +149,15 @@
   display: grid;
   align-self: center;
   justify-self: end;
+  gap: 0.5rem;
+  text-align: right;
 }
 
 .socialMediaLinks {
-  margin-right: 50px;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .socialMediaLinks a:visited {
@@ -144,18 +174,22 @@
 }
 
 .footer img {
-  max-width: 10cm;
+  width: min(100%, 320px);
 }
 
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.75rem;
   padding: 5px;
+  margin: 0;
   color: #7bdcb5;
 }
 
 li {
-  padding: 5px;
+  padding: 0;
 }
 
 body {
@@ -174,11 +208,13 @@ body {
   min-height: 100vh;
 
   font-family: "Libre Baskerville", serif;
+  margin: 0;
+  line-height: 1.6;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   body {
-    grid-template-columns: calc(100%-2em);
+    grid-template-columns: calc(100% - 2em);
     grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
     grid-template-areas:
       "icon"
@@ -189,7 +225,8 @@ body {
       "openHours"
       "form"
       "footer";
-    margin: 0;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
   .logo {
@@ -199,10 +236,17 @@ body {
 
   .right-menu {
     justify-self: center;
+    padding: 0 0 1rem;
+    width: min(100%, 34rem);
+  }
+
+  ul {
+    justify-content: center;
   }
 
   .contactHeader {
     text-align: center;
+    padding: 1.5rem 1rem;
   }
 
   .dontHesitateContactText {
@@ -216,10 +260,42 @@ body {
 
   .availableSchedule {
     grid-template-columns: 1fr 1fr;
-    padding: 20px;
+    padding: 0;
+    justify-self: center;
   }
 
   .inputFields {
-    padding: 20px;
+    padding: 0 0 1.5rem;
+  }
+
+  .inputFields .nameAndNumber {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .inputFields .submitButton {
+    width: 100%;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footerLinks {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .socialMediaLinks {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    grid-template-columns: 1fr;
+    padding: 0 0.75rem;
   }
 }
