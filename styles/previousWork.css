@@ -25,7 +25,12 @@ img {
 }
 
 .right-menu li a {
-  color: #2fd895;
+  color: #1c6b52;
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background-color: rgba(47, 216, 149, 0.12);
+  display: inline-block;
 }
 
 .container {
@@ -33,12 +38,13 @@ img {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  width: 100%;
+  width: min(1180px, 100%);
   min-height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2.5rem 6%;
+  justify-self: center;
 }
 
 .previousWorkHeader {
@@ -50,6 +56,7 @@ img {
   text-align: center;
   background-color: #fbf7f7;
   margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
 }
 
 .gallery {
@@ -67,15 +74,26 @@ img {
   border-radius: 12px;
 }
 
+.gallery a {
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 18px 38px rgba(56, 65, 67, 0.08);
+}
+
 .instagramDivider {
   display: grid;
   grid-area: instagramDivider;
   align-self: center;
   text-align: center;
   color: #384143;
-  margin-bottom: 2cm;
+  width: min(960px, calc(100% - 3rem));
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .instagramDivider img {
@@ -91,6 +109,7 @@ img {
   gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
+  border-top: 1px solid rgba(56, 65, 67, 0.12);
 }
 
 .footerLinks {
@@ -154,6 +173,8 @@ body {
   font-family: "Libre Baskerville", serif;
   margin: 0;
   line-height: 1.6;
+  color: #384143;
+  background: linear-gradient(180deg, #f2ece5 0%, #fffdf9 14rem, #ffffff 100%);
 }
 
 @media screen and (max-width: 768px) {
@@ -193,6 +214,7 @@ body {
   .container {
     padding: 1rem 0 1.5rem;
     align-items: flex-start;
+    width: 100%;
   }
 
   .gallery {
@@ -201,6 +223,7 @@ body {
   }
 
   .instagramDivider {
+    width: min(100%, calc(100% - 1.5rem));
     margin-bottom: 1.5rem;
   }
 

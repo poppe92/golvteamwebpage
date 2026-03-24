@@ -25,7 +25,12 @@ img {
 }
 
 .right-menu li a {
-  color: #2fd895;
+  color: #1c6b52;
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background-color: rgba(47, 216, 149, 0.12);
+  display: inline-block;
 }
 
 .ourHistoryHeader {
@@ -39,6 +44,7 @@ img {
   background-color: #fbf7f7;
   margin: 0;
   text-align: center;
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
 }
 
 .imageAndAdressWrapper {
@@ -46,7 +52,9 @@ img {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
-  padding: 1.5rem;
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 1.5rem 0;
 }
 
 .adressImage {
@@ -57,7 +65,10 @@ img {
 .smallAdress {
   display: grid;
   align-self: end;
-  padding-left: 5px;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 14px 30px rgba(56, 65, 67, 0.08);
 }
 
 .smallAdress p {
@@ -73,7 +84,12 @@ img {
   font-size: x-large;
   align-items: center;
   gap: 1rem;
-  padding: 0 1.5rem 1.5rem;
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto 1.5rem;
+  padding: 1.75rem;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(56, 65, 67, 0.08);
 }
 
 .historyArticle img {
@@ -86,15 +102,20 @@ img {
   grid-area: employees;
   grid-template-columns: 1fr 2fr 1fr;
   margin-bottom: 15px;
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1.5rem 2rem;
 }
 
 .employees .contentDiv {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  padding-bottom: 10px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 1.75rem;
   text-align: center;
   gap: 1rem;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(56, 65, 67, 0.08);
 }
 
 .employees h2 {
@@ -122,6 +143,7 @@ img {
   gap: 1.5rem;
   padding: 24px;
   background-color: #fbf7f7;
+  border-top: 1px solid rgba(56, 65, 67, 0.12);
 }
 
 .footerLinks {
@@ -187,6 +209,8 @@ body {
   font-family: "Libre Baskerville", serif;
   margin: 0;
   line-height: 1.6;
+  color: #384143;
+  background: linear-gradient(180deg, #f2ece5 0%, #fffdf9 14rem, #ffffff 100%);
 }
 
 @media screen and (max-width: 768px) {
@@ -221,7 +245,8 @@ body {
 
   .imageAndAdressWrapper {
     grid-template-columns: 1fr;
-    padding: 1.5rem 1rem;
+    width: min(100%, calc(100% - 1.5rem));
+    padding: 1.5rem 0;
     justify-items: center;
   }
 
@@ -232,7 +257,8 @@ body {
 
   .historyArticle {
     grid-template-columns: 1fr;
-    padding: 0 1rem 1.5rem;
+    width: min(100%, calc(100% - 1.5rem));
+    padding: 1.5rem 1rem;
     font-size: large;
   }
 
@@ -250,11 +276,13 @@ body {
 
   .employees {
     grid-template-columns: 1fr;
-    padding: 0 1rem 1.5rem;
+    padding: 0 0 1.5rem;
   }
 
   .employees .contentDiv {
     grid-template-columns: 1fr;
+    width: min(100%, calc(100% - 1.5rem));
+    padding: 1.5rem 1rem;
   }
 
   .ourEmployeesHeader {
