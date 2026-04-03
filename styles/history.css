@@ -94,8 +94,9 @@ img {
 }
 
 .historyArticle img {
-  width: 100px;
-  padding: 1cm;
+  width: clamp(120px, 10vw, 160px);
+  padding: 1rem;
+  justify-self: center;
 }
 
 .employees {
@@ -272,6 +273,7 @@ body {
   }
 
   .historyArticle img {
+    width: clamp(120px, 34vw, 160px);
     justify-self: center;
   }
 
