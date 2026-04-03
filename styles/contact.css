@@ -223,7 +223,7 @@ li {
 body {
   display: grid;
   grid-template-areas:
-    "icon . nav nav"
+    "icon nav nav nav"
     "contactUs contactUs contactUs contactUs"
     ". dontHestitate adress ."
     ". form openHours ."
